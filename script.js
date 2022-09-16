@@ -3,7 +3,6 @@
 window.addEventListener("DOMContentLoaded", start);
 
 let allStudents = [];
-let expelledStudents = [];
 
 const settings = {
   filter: "all",
@@ -13,6 +12,7 @@ const settings = {
 
 // The prototype for all students:
 const Student = {
+  prefect: false,
   attending: true,
   expelled: false,
   firstName: "",
@@ -21,8 +21,13 @@ const Student = {
   lastName: "",
   gender: "",
   house: "",
-  //image: "null",
+  image: "null",
 };
+
+//seach filed
+const searchField = document.querySelector(".search");
+searchField.addEventListener("input", initSearch);
+let showNumberOfStudent = document.querySelector(".howmanystudents");
 
 function start() {
   console.log("ready");
@@ -53,6 +58,24 @@ function prepareObjects(jsonData) {
   allStudents = jsonData.map(prepareObject);
 
   buildList();
+}
+//serach function made here
+function initSearch(event) {
+  console.log("im here");
+  let searchStudentList = allStudents.filter((student) => {
+    let name = "";
+    if (student.lastName === null) {
+      name = student.firstName;
+    } else {
+      name = student.firstName + " " + student.lastName;
+    }
+    return name.toLowerCase().includes(event.target.value);
+  });
+
+  // this will show number og student in the search
+
+  showNumberOfStudent.textContent = `number of students: ${searchStudentList.length}`;
+  displayList(searchStudentList);
 }
 /*clean data og opret object "student"  */
 function prepareObject(jsonObject) {
@@ -261,23 +284,17 @@ function displayStudent(student) {
   const clone = document
     .querySelector("template#student")
     .content.cloneNode(true);
-
   // set clone data
   clone.querySelector(
     "[data-field=firstName]"
   ).textContent = `${student.firstName}`;
   clone.querySelector(
-    "[data-field=middleName]"
-  ).textContent = ` ${student.middleName}`;
-  clone.querySelector(
-    "[data-field=nickName]"
-  ).textContent = ` ${student.nickName}`;
-  clone.querySelector(
     "[data-field=lastName]"
   ).textContent = `${student.lastName}`;
-  clone.querySelector("[data-field=gender]").textContent = `${student.gender}`;
   clone.querySelector("[data-field=house]").textContent = `${student.house}`;
-  /* clone.querySelector(".images").src = `/images/${student.image}`; */
+  clone
+    .querySelector(".details")
+    .addEventListener("click", () => showDetails(student));
 
   //expelled
   if (student.expelled === true) {
@@ -292,10 +309,63 @@ function displayStudent(student) {
   function clickExpelled() {
     if (student.expelled === false) {
       student.expelled = true;
+      student.prefect = false;
+    }
+    buildList();
+  }
+  // Prefect
+
+  if (student.prefect === true) {
+    clone.querySelector("[data-field=prefect]").textContent = "yes";
+  } else {
+    clone.querySelector("[data-field=prefect]").textContent = "no";
+  }
+  clone
+    .querySelector("[data-field=prefect]")
+    .addEventListener("click", clickPrefect);
+
+  function clickPrefect() {
+    if (student.expelled === true) {
+      student.prefect = false;
+    } else if (student.prefect === false) {
+      student.prefect = true;
+    } else {
+      student.prefect = false;
     }
     buildList();
   }
 
   // append clone to list
   document.querySelector("#list tbody").appendChild(clone);
+}
+
+function showDetails(student) {
+  // console.log("clicked on", student);
+
+  const popup = document.querySelector("#popup");
+  popup.style.display = "block";
+
+  popup.querySelector(
+    ".firstname"
+  ).textContent = `Firstname: ${student.firstName}`;
+  popup.querySelector(
+    ".middlename"
+  ).textContent = ` Middlename: ${student.middleName}`;
+  popup.querySelector(
+    ".nickname"
+  ).textContent = ` Nickname: ${student.nickName}`;
+  popup.querySelector(
+    ".lastname"
+  ).textContent = `Lastname: ${student.lastName}`;
+  popup.querySelector(".gender").textContent = `Gender: ${student.gender}`;
+  popup.querySelector(".house").textContent = `House: ${student.house}`;
+  popup.querySelector(".prefect").textContent = `Prefect: ${student.prefect}`;
+  popup.querySelector(
+    ".expelled"
+  ).textContent = `Expelled: ${student.expelled}`;
+  popup.querySelector(".images").src = `/images/${student.image}`;
+
+  document
+    .querySelector(".close_btn")
+    .addEventListener("click", () => (popup.style.display = "none"));
 }

@@ -5,12 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>hogwarts students</title>
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <h1>students</h1>
-    <p>
-      Filter:
+    <main>
+      <header>
+        
+      </header>
+    
+    <h1>Class of 1991</h1>
+    <div id="searchfield">
+        <input class="search" type="search" placeholder="search here...."/>
+      </div>
+
+          <div>
+      
+      <div class="howmanystudents"></div>
+    </div>
+    
+    <div>
+      <p>Filter:</p>
       <button class="filter" data-action="filter" data-filter="all">
         All students
       </button>
@@ -30,45 +44,60 @@
         Expelled students
       </button>
       <button class="filter" data-action="filter" data-filter="attending">
-        Attending</button>
-    </p>
+        Attending
+      </button>
+    </div>
 
     <hr />
+    <div class="showen_students"></div>
 
     <table id="list">
       <thead>
         <tr id="sorting">
-          <!-- <th>image</th> -->
-       
-           <td data-field="expelled">Expelled</td>
-          <th data-action="sort" data-sort-direction="asc" data-sort="firstName">Firstnames</th>
-          <th>Middlename</th>
-          <th>Nickname</th>
+          
+          <th data-action="sort" data-sort-direction="asc"data-sort="firstName">Firstnames</th>
           <th data-action="sort" data-sort-direction="asc" data-sort="lastName">Lastnames</th>
-          <th>gender</th>
-          <th data-action="sort" data-sort-direction="asc" data-sort="house">House</th>
+          <th data-action="sort" data-sort-direction="asc" data-sort="house"> House</th>
+          <th data-action="sort" data-sort-direction="asc" data-sort="prefect">Prefects</th>
+          <th data-action="sort" data-sort-direction="asc" data-sort="expelled" data-field="expelled">Expelled</th>
+          
         </tr>
       </thead>
       <tbody>
         <!-- animal template will be copied and inserted here -->
       </tbody>
     </table>
-
+     <!-- POPUP -->
+    <aside id="popup" >
+      <article>
+          <button class="close_btn">X</button>
+        <img class="images" data-field="image" src="" alt="">
+        <p  class="firstname">Firstname:</p>
+        <p class="middlename">Middlename:</p>
+        <p class="nickname">Nickname:</p>
+        <p class="lastname">Lastname:</p>
+        <p class="gender">Gender:</p>
+        <p class="house">House:</p>
+        <p class="expelled">Expelled:</p>
+        <p class="prefect">Prefect:</p>
+      </article>
+    </aside>
+</main>
     <template id="student">
       <tr>
         
-       <td data-field="expelled">no</td>
-        <!-- <img class="images" data-field="image" src="" alt=""> -->
         <td data-field="firstName">Firstname</td>
-        <td data-field="middleName">Middlename</td>
-        <td data-field="nickName">Nickname</td>
         <td data-field="lastName">Lastname</td>
-        <td data-field="gender">Gender</td>
         <td data-field="house">House</td>
+        <td data-field="prefect">no</td>
+         <td data-field="expelled">no</td>
+        <!-- <button class="details">see details</button> -->
+        <td class="details"><button class="details_btn">see details</button></td>
       </tr>
     </template>
 
     <script src="script.js"></script>
   </body>
 </html>
+
 
