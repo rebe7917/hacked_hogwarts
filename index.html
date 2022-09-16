@@ -26,6 +26,11 @@
       <button class="filter" data-action="filter" data-filter="Slytherin">
         Slytherin
       </button>
+      <button class="filter" data-action="filter" data-filter="expelled">
+        Expelled students
+      </button>
+      <button class="filter" data-action="filter" data-filter="attending">
+        Attending</button>
     </p>
 
     <hr />
@@ -34,6 +39,8 @@
       <thead>
         <tr id="sorting">
           <!-- <th>image</th> -->
+       
+           <td data-field="expelled">Expelled</td>
           <th data-action="sort" data-sort-direction="asc" data-sort="firstName">Firstnames</th>
           <th>Middlename</th>
           <th>Nickname</th>
@@ -49,6 +56,8 @@
 
     <template id="student">
       <tr>
+        
+       <td data-field="expelled">no</td>
         <!-- <img class="images" data-field="image" src="" alt=""> -->
         <td data-field="firstName">Firstname</td>
         <td data-field="middleName">Middlename</td>

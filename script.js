@@ -3,6 +3,7 @@
 window.addEventListener("DOMContentLoaded", start);
 
 let allStudents = [];
+let expelledStudents = [];
 
 const settings = {
   filter: "all",
@@ -12,6 +13,8 @@ const settings = {
 
 // The prototype for all students:
 const Student = {
+  attending: true,
+  expelled: false,
   firstName: "",
   nickName: "",
   middelName: "",
@@ -49,8 +52,7 @@ async function loadJSON() {
 function prepareObjects(jsonData) {
   allStudents = jsonData.map(prepareObject);
 
-  // TODO: This might not be the function we want to call first
-  displayList(allStudents);
+  buildList();
 }
 /*clean data og opret object "student"  */
 function prepareObject(jsonObject) {
@@ -165,6 +167,12 @@ function filterList(filteredList) {
   } else if (settings.filterBy === "Slytherin") {
     //create a filtered list of only sly
     filteredList = allStudents.filter(isSlytherin);
+  } else if (settings.filterBy === "expelled") {
+    //create a filtered list of only sly
+    filteredList = allStudents.filter(isExpelled);
+  } else if (settings.filterBy === "attending") {
+    //create a filtered list of only sly
+    filteredList = allStudents.filter(isAttending);
   }
   return filteredList;
 }
@@ -181,7 +189,12 @@ function isHufflePuff(student) {
 function isSlytherin(student) {
   return student.house === "Slytherin";
 }
-
+function isExpelled(student) {
+  return student.expelled === true;
+}
+function isAttending(student) {
+  return student.expelled === false;
+}
 /*---------------------------------sort-----------------------------*/
 function selectSort(event) {
   const sortBy = event.target.dataset.sort; // what is clicked
@@ -252,23 +265,36 @@ function displayStudent(student) {
   // set clone data
   clone.querySelector(
     "[data-field=firstName]"
-  ).textContent = `Firstname: ${student.firstName}`;
+  ).textContent = `${student.firstName}`;
   clone.querySelector(
     "[data-field=middleName]"
-  ).textContent = `Middlename: ${student.middleName}`;
+  ).textContent = ` ${student.middleName}`;
   clone.querySelector(
     "[data-field=nickName]"
-  ).textContent = `NickName: ${student.nickName}`;
+  ).textContent = ` ${student.nickName}`;
   clone.querySelector(
     "[data-field=lastName]"
-  ).textContent = `Lastname: ${student.lastName}`;
-  clone.querySelector(
-    "[data-field=gender]"
-  ).textContent = `Gender: ${student.gender}`;
-  clone.querySelector(
-    "[data-field=house]"
-  ).textContent = `House: ${student.house}`;
+  ).textContent = `${student.lastName}`;
+  clone.querySelector("[data-field=gender]").textContent = `${student.gender}`;
+  clone.querySelector("[data-field=house]").textContent = `${student.house}`;
   /* clone.querySelector(".images").src = `/images/${student.image}`; */
+
+  //expelled
+  if (student.expelled === true) {
+    clone.querySelector("[data-field=expelled]").textContent = "yes";
+  } else {
+    clone.querySelector("[data-field=expelled]").textContent = "no";
+  }
+  clone
+    .querySelector("[data-field=expelled]")
+    .addEventListener("click", clickExpelled);
+
+  function clickExpelled() {
+    if (student.expelled === false) {
+      student.expelled = true;
+    }
+    buildList();
+  }
 
   // append clone to list
   document.querySelector("#list tbody").appendChild(clone);
