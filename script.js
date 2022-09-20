@@ -28,7 +28,7 @@ const Student = {
 
 //seach filed
 const searchField = document.querySelector(".search");
-searchField.addEventListener("input", initSearch);
+searchField.addEventListener("input", searchByName);
 let showNumberOfStudent = document.querySelector(".howmanystudents");
 
 function start() {
@@ -62,7 +62,7 @@ function prepareObjects(jsonData) {
   buildList();
 }
 //serach function made here
-function initSearch(event) {
+function searchByName(event) {
   console.log("im here");
   let searchStudentList = allStudents.filter((student) => {
     let name = "";
@@ -224,7 +224,8 @@ function filterList(filteredList) {
     //create a filtered list of only sly
     filteredList = allStudents.filter(isSquadMember);
   }
-
+  document.querySelector("[data-field=numberDisplayed]").textContent =
+    filteredList.length;
   return filteredList;
 }
 //hvad skal retuneres når der trykkes
@@ -348,6 +349,7 @@ function displayStudent(student) {
       student.expelled = true;
       student.prefect = false;
       student.attending = false;
+      student.squadMember = false;
     }
     buildList();
   }
@@ -389,7 +391,6 @@ function displayStudent(student) {
   // append clone to list
   document.querySelector("#list tbody").appendChild(clone);
 }
-
 //clone to pop-up single student
 function showDetails(student) {
   // console.log("clicked on", student);
@@ -491,7 +492,7 @@ function tryToMakeAPrefect(selectedStudent) {
     student.prefect = true;
   }
 }
-
+//sguad member
 function tryToMakeASquadMember(student) {
   if (student.house === "Slytherin" || student.bloodStatus === "Pureblood") {
     student.squadMember = true;
