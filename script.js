@@ -373,16 +373,15 @@ function displayStudent(student) {
   } else {
     clone.querySelector("[data-field=squadMember]").textContent = "no";
   }
-  //
   clone
     .querySelector("[data-field=squadMember]")
-    .addEventListener("click", clickSquad);
-  //
-  function clickSquad() {
+    .addEventListener("click", clickSquadMember);
+
+  function clickSquadMember() {
     if (student.squadMember === true) {
       student.squadMember = false;
     } else {
-      tryToMakeSquadMember(student);
+      tryToMakeASquadMember(student);
     }
     buildList();
   }
@@ -493,31 +492,20 @@ function tryToMakeAPrefect(selectedStudent) {
   }
 }
 
-function tryToMakeSquadMember(selectedSquadStudent) {
-  const squadMembers = allStudents.filter((student) => student.squadMember);
-  const otherMember = squadMembers.filter(
-    (student) => student.bloodStatus === selectedSquadStudent.bloodStatus
-  );
-
-  if (
-    student.house === "slytherin" /* || student.bloodStatus === "Pureblood" */
-  ) {
-    student.squadMember === true;
+function tryToMakeASquadMember(student) {
+  if (student.house === "Slytherin" || student.bloodStatus === "Pureblood") {
+    student.squadMember = true;
   } else {
-    openSquadDialog(selectedSquadStudent);
-  }
-
-  function openSquadDialog() {
     document.querySelector("#warningbox_squad").classList.remove("hide");
     document
-      .querySelector(".okay_btn")
+      .querySelector("#warningbox_squad .okay_btn")
       .addEventListener("click", closeSquadDialog);
+  }
 
-    function closeSquadDialog() {
-      document.querySelector("#warningbox_squad").classList.add("hide");
-      document
-        .querySelector(".okay_btn")
-        .removeEventListener("click", closeSquadDialog);
-    }
+  function closeSquadDialog() {
+    document.querySelector("#warningbox_squad").classList.add("hide");
+    document
+      .querySelector("#warningbox_squad .okay_btn")
+      .removeEventListener("click", closeSquadDialog);
   }
 }
