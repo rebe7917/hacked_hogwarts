@@ -1,6 +1,17 @@
 [data-action] {
   cursor: pointer;
 }
+body{
+background-color:rgb(243, 238, 231);
+margin-left: 50px;
+margin-right: 50px;
+}
+main{
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  
+}
 
 /* #sorting th.sortby {
   text-decoration: underline;
@@ -57,17 +68,7 @@ aside article {
   border-radius: 3px;
   padding: 10px;
 }
-body{
-background-color:rgb(243, 238, 231);
-margin-left: 10%;
-margin-right: 10%;
-}
-main{
-  display: grid;
-  justify-content: center;
-  align-items: center;
-  
-}
+
 /* tbody{
   
 } */
@@ -106,6 +107,7 @@ th{
 font-size: 1.1rem;
 font-weight: 500;
 color: rgb(54, 40, 40);
+text-align: start;
 }
 
 td.details{
@@ -155,4 +157,35 @@ button.closebutton{
   border-radius: 50px;
   width: 2em;
   height: 2em;
+}
+
+#hack{
+ border-radius: 100%;
+ width: 70px;
+ height: 70px;
+ text-align: center;
+ background-color: red;
+}
+h1, 
+h2,
+.h3header{
+  text-align: center;
+}
+.student_numbers{
+  display: grid;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.sort_numbers{
+  display: flex;
+  align-items: center;
+}
+/* .filter_btns{
+  display: flex;
+  flex-wrap: wrap;
+} */
+.grid_box1{
+  margin-bottom: 20px;
 }
