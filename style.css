@@ -1,21 +1,77 @@
-[data-action] {
-  cursor: pointer;
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
+
 body{
 background-color:rgb(243, 238, 231);
 margin-left: 50px;
 margin-right: 50px;
+
 }
+
 main{
   display: grid;
   justify-content: center;
   align-items: center;
-  
+ 
+}
+header{
+  margin-top: 40px;
+  margin-bottom: 20px;
 }
 
-/* #sorting th.sortby {
-  text-decoration: underline;
-} */
+[data-action] {
+  cursor: pointer;
+}
+
+.hide{
+  display: none;
+  visibility: hidden;
+
+}
+
+/*-----------------------------------------------------hacking-------------------------------------------*/
+#hack{
+  display: grid;
+  justify-content: center;
+  align-items: center;
+ border-radius: 100%;
+ width: 70px;
+ height: 70px;
+ text-align: center;
+margin-top: 20px;
+ background-color: red;
+}
+/*------------------------------------------overskrifter og tekst ------------------------------*/
+h1, 
+h2{
+  text-align: center;
+  color: rgb(54, 40, 40);
+ 
+}
+header h1{
+  line-height: 1.5;
+}
+h1{
+  font-size: 4rem;
+}
+header h2{
+  font-size: 1.6rem;
+}
+.h2_list{
+ text-align: start;
+}
+
+th{
+font-size: 1.1rem;
+font-weight: 500;
+color: rgb(54, 40, 40);
+text-align: start;
+}
+/*----------------------------------------------------table-----------------------------------*/
+
 #sorting th.sortby[data-sort-direction="asc"]::after {
   content: "↓"
 }
@@ -37,17 +93,29 @@ main{
   background-color: rgb(189, 182, 175);
   
 }
-h1{
-  color: rgb(54, 40, 40);
-}
+
 #list tbody tr:nth-child(even) td {
 background-color: rgb(204, 198, 191);
   
 }
-.hide{
-  display: none;
+.details_btn{
+  cursor: pointer;
+  background-color:rgb(98, 80, 80);
+  color: whitesmoke;
+  border-radius: 10px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border: none;
+  
+}
+td.details{
+  background-color: white;
+}
+table{
+  width: 100%; 
 }
 
+/*------------------------------------------------ student popup ------------------------------------------------------*/
 #popup {
   display: none;
   position: fixed;
@@ -69,9 +137,6 @@ aside article {
   padding: 10px;
 }
 
-/* tbody{
-  
-} */
 .close_btn{
    background-color:rgb(158, 145, 145);
   cursor: pointer;
@@ -81,16 +146,7 @@ aside article {
   border: none;
 }
 
-.details_btn{
-  cursor: pointer;
-  background-color:rgb(98, 80, 80);
-  color: whitesmoke;
-  border-radius: 10px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border: none;
-  
-}
+/*----------------------------------------------------filter btns-----------------------------------*/
 button.filter{
   cursor: pointer;
   background-color:rgb(98, 80, 80);
@@ -99,24 +155,9 @@ button.filter{
   padding-left: 5px;
   padding-right: 5px;
   text-align: center;
-   border: none;
-  
+  border: none;
 }
-
-th{
-font-size: 1.1rem;
-font-weight: 500;
-color: rgb(54, 40, 40);
-text-align: start;
-}
-
-td.details{
-  background-color: white;
-}
-.hide{
-  visibility: hidden;
-}
-
+/*------------------------------------------------------prefect---------------------------------*/
 td[data-field=prefect]::after{
   content: "🏆";
 }
@@ -124,6 +165,37 @@ td[data-field=prefect]::after{
 td[data-field=prefect][data-prefect=false]::after{
   filter: grayscale(1);
 }
+#warningbox_prefect h3{
+  text-align: center;
+  font-size: 1.5rem;
+}
+button.closebutton{
+  position: absolute;
+  top: 3px;
+  right: 3px;
+ background-color: rgb(158, 145, 145);
+  border-radius: 50px;
+  width: 1.5em;
+  height: 1.5em;
+  border: none;
+}
+.removeaorbbtn{
+  background-color:rgb(158, 145, 145);
+  border: none;
+  color: rgba(54, 51, 51,);
+  padding: 2px;
+  border-radius: 40px;
+  padding-left: 8px;
+  padding-right: 8px;
+  width: 130px;
+  text-align: start;
+}
+.removeaorb_grid{
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+}
+/*-------------------------------------------------warningboxe--------------------------------------------*/
 .modal{
   position: fixed;
   top: 0;
@@ -134,58 +206,54 @@ td[data-field=prefect][data-prefect=false]::after{
   display: flex;
   justify-content: center;
   align-items: center;
-
-
 }
 .dialog{
   box-shadow: 1px 1px 10px black;
   border-radius: 12px;
   padding: 20px;
-  background-color: whitesmoke;
+  background-color: rgba(88, 85, 85, 0.952);
   position: relative;
-  
+  color: rgb(158, 145, 145);
+}
+.dialog p {
+  padding: 5px;
+}
+.dialog h3 {
+  margin-bottom: 5px;
+}
 
-}
-.dialog h1{
-margin-top: 0;
-}
-button.closebutton{
-  position: absolute;
-  top: 0;
-  right: 2px;
- background-color: rgb(231, 63, 105);
+.okay_btn{
+  background-color: rgb(158, 145, 145);
+  border: none;
   border-radius: 50px;
-  width: 2em;
-  height: 2em;
+  padding: 2px;
+  padding-left: 8px;
+  padding-right: 8px;
+}
+/*---------------------------------------searchbar-------------------------------------*/
+.grid_box1{
+  margin-bottom: 20px;
+  margin-top: 20px;
 }
 
-#hack{
- border-radius: 100%;
- width: 70px;
- height: 70px;
- text-align: center;
- background-color: red;
-}
-h1, 
-h2,
-.h3header{
-  text-align: center;
-}
 .student_numbers{
-  display: grid;
+ /*  display: grid;
   align-items: center;
-  justify-content: center;
+  justify-content: center; */
+  margin-top: 10px;
+
 }
-
-
+.search{
+  border-radius:50px ;
+  padding: 3px;
+  width: 170px;
+}
+/*-----------------------------currently displayed-----------------*/
 .sort_numbers{
   display: flex;
   align-items: center;
+  margin-top: 20px;
 }
-/* .filter_btns{
-  display: flex;
-  flex-wrap: wrap;
-} */
-.grid_box1{
-  margin-bottom: 20px;
-}
+
+/* ---------------------------------------------------animations ??--------------------------------------------*/
+
