@@ -5,12 +5,14 @@
 }
 
 body {
-  /* background-color: rgb(243, 238, 231);
-  margin-left: 50px;
-  margin-right: 50px; */
-  background-image: url("background/nightlights.png");
-  background-repeat: no-repeat;
+/*   background-color: rgb(243, 238, 231);
+ */  
+ margin-left: 50px;
+  margin-right: 50px;
+  background-image: url("background/skynight.png");
+  background-repeat:repeat-y;
   background-size: 100%;
+
 }
 
 main {
@@ -33,16 +35,25 @@ header {
 }
 
 /*-----------------------------------------------------hacking-------------------------------------------*/
+#hack_box{
+
+}
 #hack {
-  display: grid;
+  border-radius: 10px;
+  background-color: rgb(253, 209, 153);
+  padding-left: 5px;
+  padding-right: 5px;
+  
+/*  display: grid;
   justify-content: center;
-  align-items: center;
-  border-radius: 100%;
-  width: 70px;
-  height: 70px;
-  text-align: center;
-  margin-top: 20px;
-  background-color: red;
+  align-items: center ;
+  border-radius: 30%;
+  background-color: rgb(253, 209, 153);
+  width: 100%;
+  height: auto;
+ text-align: center; 
+  margin-top: 20px;  */
+  
 }
 /*------------------------------------------overskrifter og tekst ------------------------------*/
 h1,
@@ -94,13 +105,12 @@ th {
   color: rgb(54, 40, 40);
 }
 #list tbody tr:nth-child(odd) td {
-  /* background-color:rgba(7, 7, 86, 0); */
-  
+  background-color:rgba(7, 7, 86, 0.623);
    color: rgb(246, 184, 103);
 }
 
 #list tbody tr:nth-child(even) td {
-  /* background-color: rgba(8, 8, 98, 0); */
+  background-color: rgba(8, 8, 98, 0.722);
   color: rgb(246, 184, 103);
 }
 td,
@@ -134,13 +144,20 @@ th{
 }
 /*------------------------------------------------ student popup ------------------------------------------------------*/
 #popup {
-  display: none;
+/*   display: none;
   position: fixed;
-  top: 200px;
+  top: 100px;
   left: 500px;
   height: 350px;
   width: 700px;
   color: rgb(193, 180, 180);
+  z-index: 100; */
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
   z-index: 100;
    
 }
@@ -149,13 +166,30 @@ aside article {
   grid-template-rows: 30px 350px;
   background-color:rgb(11, 11, 68);
   box-shadow: rgb(245, 194, 117) 0px 7px 29px 0px;
-  width: 60%;
-  height: auto;
+  width: 65%;
+  height:auto;
   margin: 4em auto;
   border-radius: 3px;
-  padding: 10px;
+  padding: 20px;
+  color: antiquewhite;
 
 }
+@media (min-width: 700px) {
+  aside article {
+  display: grid;
+  grid-template-rows: 30px 350px;
+  background-color:rgb(11, 11, 68);
+  box-shadow: rgb(245, 194, 117) 0px 7px 29px 0px;
+  width: 40%;
+  height:auto;
+  margin: 4em auto;
+  border-radius: 3px;
+  padding: 20px;
+    
+
+}
+}
+
 .the_info{
   display: grid;
   justify-content: center;
@@ -169,6 +203,20 @@ aside article {
   width: 1.5em;
   height: 1.5em;
   border: none;
+}
+
+.fotos{
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 10px;
+}
+.crest_box{
+width: 50px;
+height: 50px;
+}
+.crest{
+  width: 100%;
+  height: 100%;
 }
 
 /*----------------------------------------------------filter btns-----------------------------------*/
@@ -275,6 +323,7 @@ button.closebutton {
   padding: 3px;
   width: 170px;
   border: solid 2px rgb(158, 145, 145);
+ margin-bottom: 20px;
 }
 /*-----------------------------currently displayed-----------------*/
 .sort_numbers {
@@ -283,6 +332,7 @@ button.closebutton {
   margin-top: 20px;
   color: rgb(253, 209, 153);
   font-size:1.3rem ;
+  margin-bottom: 20px;
 }
 
 /* ---------------------------------------------------animations ??--------------------------------------------*/
