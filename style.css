@@ -1,23 +1,24 @@
-*{
+* {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
-body{
-background-color:rgb(243, 238, 231);
-margin-left: 50px;
-margin-right: 50px;
-
+body {
+  /* background-color: rgb(243, 238, 231);
+  margin-left: 50px;
+  margin-right: 50px; */
+  background-image: url("background/nightlights.png");
+  background-repeat: no-repeat;
+  background-size: 100%;
 }
 
-main{
+main {
   display: grid;
   justify-content: center;
   align-items: center;
- 
 }
-header{
+header {
   margin-top: 40px;
   margin-bottom: 20px;
 }
@@ -26,57 +27,61 @@ header{
   cursor: pointer;
 }
 
-.hide{
+.hide {
   display: none;
   visibility: hidden;
-
 }
 
 /*-----------------------------------------------------hacking-------------------------------------------*/
-#hack{
+#hack {
   display: grid;
   justify-content: center;
   align-items: center;
- border-radius: 100%;
- width: 70px;
- height: 70px;
- text-align: center;
-margin-top: 20px;
- background-color: red;
+  border-radius: 100%;
+  width: 70px;
+  height: 70px;
+  text-align: center;
+  margin-top: 20px;
+  background-color: red;
 }
 /*------------------------------------------overskrifter og tekst ------------------------------*/
-h1, 
-h2{
+h1,
+h2 {
   text-align: center;
-  color: rgb(54, 40, 40);
- 
+  color: rgb(253, 209, 153);
 }
-header h1{
+header h1 {
   line-height: 1.5;
 }
-h1{
+h1 {
   font-size: 4rem;
 }
-header h2{
+header h2 {
   font-size: 1.6rem;
 }
-.h2_list{
- text-align: start;
+.h2_list {
+  text-align: start;
+  color:rgb(246, 184, 103);
 }
 
-th{
-font-size: 1.1rem;
-font-weight: 500;
-color: rgb(54, 40, 40);
-text-align: start;
+th {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: rgb(54, 40, 40);
+  text-align: start;
+}
+[ data-field="prefect"], 
+[ data-field="squadMember"],
+[ data-field="expelled"]{
+  text-align: center;
 }
 /*----------------------------------------------------table-----------------------------------*/
 
 #sorting th.sortby[data-sort-direction="asc"]::after {
-  content: "↓"
+  content: "↓";
 }
 #sorting th.sortby[data-sort-direction="desc"]::after {
-  content: "↑"
+  content: "↑";
 }
 #list {
   border-collapse: collapse;
@@ -84,61 +89,81 @@ text-align: start;
 
 #list tbody tr td {
   padding: 4px;
-  
 }
-#list tbody{
-  color:rgb(54, 40, 40);
+#list tbody {
+  color: rgb(54, 40, 40);
 }
 #list tbody tr:nth-child(odd) td {
-  background-color: rgb(189, 182, 175);
+  /* background-color:rgba(7, 7, 86, 0); */
   
+   color: rgb(246, 184, 103);
 }
 
 #list tbody tr:nth-child(even) td {
-background-color: rgb(204, 198, 191);
-  
+  /* background-color: rgba(8, 8, 98, 0); */
+  color: rgb(246, 184, 103);
 }
-.details_btn{
+td,
+th {
+  text-overflow: ellipsis;
+  padding-right: 5px;
+}
+.details_btn {
   cursor: pointer;
-  background-color:rgb(98, 80, 80);
-  color: whitesmoke;
+  background-color: rgb(253, 209, 153);
+  color: black;
   border-radius: 10px;
   padding-left: 5px;
   padding-right: 5px;
   border: none;
+}
+/* td.details {
+  background-color: white;
+} */
+table {
+  width: 100%;
   
 }
-td.details{
-  background-color: white;
-}
-table{
-  width: 100%; 
-}
+th{
+  font-weight: 600;
+  color: antiquewhite;
 
+}
+[data-field="firstName"]{
+  padding-left: 10px;
+}
 /*------------------------------------------------ student popup ------------------------------------------------------*/
 #popup {
   display: none;
   position: fixed;
-  top: 0;
-  left: 0;
-  height: 100vh;
-  width: 100vw;
+  top: 200px;
+  left: 500px;
+  height: 350px;
+  width: 700px;
   color: rgb(193, 180, 180);
   z-index: 100;
+   
 }
 aside article {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  background-color:rgba(71, 54, 54, 0.921);
+  grid-template-rows: 30px 350px;
+  background-color:rgb(11, 11, 68);
+  box-shadow: rgb(245, 194, 117) 0px 7px 29px 0px;
   width: 60%;
   height: auto;
   margin: 4em auto;
   border-radius: 3px;
   padding: 10px;
+
+}
+.the_info{
+  display: grid;
+  justify-content: center;
+  align-items: center;
 }
 
-.close_btn{
-   background-color:rgb(158, 145, 145);
+.close_btn {
+  background-color: rgb(158, 145, 145);
   cursor: pointer;
   border-radius: 50px;
   width: 1.5em;
@@ -147,42 +172,43 @@ aside article {
 }
 
 /*----------------------------------------------------filter btns-----------------------------------*/
-button.filter{
+button.filter {
   cursor: pointer;
-  background-color:rgb(98, 80, 80);
-  color: whitesmoke;
+  background-color: rgb(253, 209, 153);
+  color: black;
   border-radius: 10px;
   padding-left: 5px;
   padding-right: 5px;
   text-align: center;
   border: none;
+  margin-bottom: 20px;
 }
 /*------------------------------------------------------prefect---------------------------------*/
-td[data-field=prefect]::after{
-  content: "🏆";
+td[data-field="prefect"]::after {
+  content: "⭐";
 }
 
-td[data-field=prefect][data-prefect=false]::after{
+td[data-field="prefect"][data-prefect="false"]::after {
   filter: grayscale(1);
 }
-#warningbox_prefect h3{
+#warningbox_prefect h3 {
   text-align: center;
   font-size: 1.5rem;
 }
-button.closebutton{
+button.closebutton {
   position: absolute;
   top: 3px;
   right: 3px;
- background-color: rgb(158, 145, 145);
+  background-color: rgb(158, 145, 145);
   border-radius: 50px;
   width: 1.5em;
   height: 1.5em;
   border: none;
 }
-.removeaorbbtn{
-  background-color:rgb(158, 145, 145);
+.removeaorbbtn {
+  background-color: rgb(158, 145, 145);
   border: none;
-  color: rgba(54, 51, 51,);
+  color: rgba(54, 51, 51);
   padding: 2px;
   border-radius: 40px;
   padding-left: 8px;
@@ -190,13 +216,15 @@ button.closebutton{
   width: 130px;
   text-align: start;
 }
-.removeaorb_grid{
+.removeaorb_grid {
   display: flex;
   justify-content: center;
   gap: 30px;
 }
+/*----------------------------------------------------squad-------------------------------------------------*/
+
 /*-------------------------------------------------warningboxe--------------------------------------------*/
-.modal{
+.modal {
   position: fixed;
   top: 0;
   left: 0;
@@ -207,7 +235,7 @@ button.closebutton{
   justify-content: center;
   align-items: center;
 }
-.dialog{
+.dialog {
   box-shadow: 1px 1px 10px black;
   border-radius: 12px;
   padding: 20px;
@@ -222,7 +250,7 @@ button.closebutton{
   margin-bottom: 5px;
 }
 
-.okay_btn{
+.okay_btn {
   background-color: rgb(158, 145, 145);
   border: none;
   border-radius: 50px;
@@ -231,29 +259,40 @@ button.closebutton{
   padding-right: 8px;
 }
 /*---------------------------------------searchbar-------------------------------------*/
-.grid_box1{
+.grid_box1 {
   margin-bottom: 20px;
   margin-top: 20px;
 }
 
-.student_numbers{
- /*  display: grid;
+.student_numbers {
+  /*  display: grid;
   align-items: center;
   justify-content: center; */
   margin-top: 10px;
-
 }
-.search{
-  border-radius:50px ;
+.search {
+  border-radius: 50px;
   padding: 3px;
   width: 170px;
+  border: solid 2px rgb(158, 145, 145);
 }
 /*-----------------------------currently displayed-----------------*/
-.sort_numbers{
+.sort_numbers {
   display: flex;
   align-items: center;
   margin-top: 20px;
+  color: rgb(253, 209, 153);
+  font-size:1.3rem ;
 }
 
 /* ---------------------------------------------------animations ??--------------------------------------------*/
 
+/* [data-field]{
+font-weight:800;
+} */
+
+[data-field=house],
+[data-field=firstName],
+[data-field=lastName]{
+  font-weight:800;
+}
