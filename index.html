@@ -4,6 +4,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Berkshire+Swash&display=swap" rel="stylesheet">
     <title>hogwarts students</title>
     <link rel="stylesheet" href="style.css" />
   </head>
@@ -17,13 +20,11 @@
         <h2 class="h2_list">Studentlist - Class of 1991 ϟ</h2>
         <div class="student_numbers">
           <div id="searchfield">
-            <input class="search" type="search" placeholder="search by name..." />
+            <input class="search" type="search" placeholder=" search by name..." />
           </div>
           <div class="numberinsearch"></div>
         </div>
-        <div id="hack_ box">
-        <button id="hack">Blow out the candles</button>
-      </div>
+       
       </div>
 
       <div class="filter_btns">
@@ -47,7 +48,7 @@
               <th data-action="sort" data-sort-direction="asc" data-sort="house">House</th>
               <th data-action="sort" data-sort-direction="asc" data-sort="prefect">Prefect</th>
               <th data-action="sort" data-sort-direction="asc" data-sort="squadMember">Squad</th>
-              <th data-action="sort" data-sort-direction="asc" data-sort="expelled" data-field="expelled">Expelled</th>
+              <th data-action="sort" data-sort-direction="asc" data-sort="expelled" data-field="expelled">Expell</th>
             </tr>
           </thead>
           <tbody>
@@ -55,14 +56,17 @@
           </tbody>
         </table>
       </div>
-
+  <div id="gridbox_mix">
       <div class="sort_numbers">
-        <h4>currently displayed:</h4>
+        <h4 class="cur_dis">Currently displayed: </h4>
         <p data-field="numberDisplayed"></p>
       </div>
-
+       <div id="hack_ box">
+        <button id="hack">The student blacklist</button>
+      </div>
+  </div>
       
-
+<footer>| Rebecca Schütze | KEA 2022 | Hacked Hogwarts | </footer>
       <!-- POPUP -->
       <aside id="popup">
         <article class="art_student">
@@ -71,23 +75,30 @@
           </div>
           <div class="the_info">
             <div class="fotos">
-              
             <img class="images" data-field="image" src="" alt="" />
-            
             <div class="crest_box"><img class="crest" src="" alt=""></div>
             </div>
+            <div>
+              <h2 class="fullname"></h2>
+            </div>
+            <div class="grid_container">
+            <div class="content_box1"> 
             <p class="firstname">Firstname:</p>
             <p class="middlename">Middlename:</p>
             <p class="nickname">Nickname:</p>
             <p class="lastname">Lastname:</p>
             <p class="gender">Gender:</p>
-            <p class="house">House:</p>
-            <p class="expelled">Expelled:</p>
-            <p class="prefect">Prefect:</p>
-            <p class="bloodstatus">Blood:</p>
+            </div>
+            <div  class="content_box2">
+              <p class="house">House:</p>
+               <p class="bloodstatus">Blood:</p>
             <p class="squadmember">Inquisitorial Squad:</p>
+            <p class="prefect">Prefect:</p>
+            <p class="expelled">Expelled:</p>
+          </div>
 
           </div>
+             </div>
         </article>
       </aside>
     </main>
@@ -95,10 +106,10 @@
     <template id="student">
       <tr>
         <td data-field="firstName">Firstname</td>
-        <td data-field="lastName">Lastname</td>
+        <td data-field="lastName">Lastname</td> 
         <td data-field="house">House</td>
         <td class="no_prefect" data-field="prefect" data-prefect="false"></td>
-        <td class="no_squad" data-field="squadMember">no</td>
+        <td  data-field="squadMember" data-squad="false"></td>
         <td data-field="expelled">no</td>
 
         <td class="details">
@@ -143,11 +154,22 @@
 
     <div id="warningbox_hacked" class="modal hide">
       <div class="dialog">
-        <button class="closebutton">X</button>
+        <button class="closebtn">X</button>
         <h3>Imperio</h3>
-        <p>The system is now hacked, MUHAHA!</p>
+        <p>I knew you had to try. <br>
+           Your system is now hacked!</p>
       </div>
     </div>
+        <div id="warningbox_hacked_squad" class="modal hide">
+      <div class="dialog">
+        <button class="closebtn">X</button>
+        <h3>Oops</h3>
+        <p>Something went wrong.. <br>
+          Why don't you try again?
+           </p>
+      </div>
+    </div>
+    
     <script src="script.js"></script>
   </body>
 </html>

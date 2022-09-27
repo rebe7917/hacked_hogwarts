@@ -4,15 +4,12 @@
   padding: 0;
 }
 
-body {
-/*   background-color: rgb(243, 238, 231);
- */  
+body { 
  margin-left: 50px;
   margin-right: 50px;
-  background-image: url("background/skynight.png");
+  background-image: url("background/mobilbg.png");
   background-repeat:repeat-y;
   background-size: 100%;
-
 }
 
 main {
@@ -34,59 +31,55 @@ header {
   visibility: hidden;
 }
 
-/*-----------------------------------------------------hacking-------------------------------------------*/
-#hack_box{
 
-}
-#hack {
-  border-radius: 10px;
-  background-color: rgb(253, 209, 153);
-  padding-left: 5px;
-  padding-right: 5px;
-  
-/*  display: grid;
-  justify-content: center;
-  align-items: center ;
-  border-radius: 30%;
-  background-color: rgb(253, 209, 153);
-  width: 100%;
-  height: auto;
- text-align: center; 
-  margin-top: 20px;  */
-  
-}
 /*------------------------------------------overskrifter og tekst ------------------------------*/
 h1,
 h2 {
   text-align: center;
-  color: rgb(253, 209, 153);
+
 }
 header h1 {
   line-height: 1.5;
 }
 h1 {
   font-size: 4rem;
+    color:  blueviolet;
+    font-family: 'Berkshire Swash', cursive;
 }
 header h2 {
   font-size: 1.6rem;
+    color: rgb(246, 187, 128);
 }
 .h2_list {
   text-align: start;
-  color:rgb(246, 184, 103);
+  color: blueviolet;
 }
 
 th {
   font-size: 1.1rem;
-  font-weight: 500;
-  color: rgb(54, 40, 40);
+
   text-align: start;
+  font-family: 'Berkshire Swash', cursive;
+  
+}
+table th{
+  padding-right: 20px;
+}
+table th:hover{
+  color:blueviolet;
 }
 [ data-field="prefect"], 
 [ data-field="squadMember"],
 [ data-field="expelled"]{
   text-align: center;
 }
-/*----------------------------------------------------table-----------------------------------*/
+
+/*---------------------------------------------------table-----------------------------------*/
+[data-field=house],
+[data-field=firstName],
+[data-field=lastName]{
+  font-weight:800;
+}
 
 #sorting th.sortby[data-sort-direction="asc"]::after {
   content: "↓";
@@ -101,42 +94,45 @@ th {
 #list tbody tr td {
   padding: 4px;
 }
-#list tbody {
+/* #list tbody {
   color: rgb(54, 40, 40);
-}
+} */
 #list tbody tr:nth-child(odd) td {
   background-color:rgba(7, 7, 86, 0.623);
-   color: rgb(246, 184, 103);
+   color: rgb(240, 228, 209);
 }
 
 #list tbody tr:nth-child(even) td {
   background-color: rgba(8, 8, 98, 0.722);
-  color: rgb(246, 184, 103);
+  color: rgb(240, 228, 209);
 }
 td,
 th {
   text-overflow: ellipsis;
   padding-right: 5px;
 }
+
 .details_btn {
   cursor: pointer;
-  background-color: rgb(253, 209, 153);
-  color: black;
+  background-color: blueviolet;
+  color: rgb(227, 219, 207) ;
   border-radius: 10px;
-  padding-left: 5px;
-  padding-right: 5px;
+  padding-left: 8px;
+  padding-right: 8px;
   border: none;
+ 
 }
-/* td.details {
-  background-color: white;
-} */
+.details_btn:hover {
+   color: rgb(246, 184, 103);
+}
+
 table {
   width: 100%;
   
 }
 th{
   font-weight: 600;
-  color: antiquewhite;
+  color: rgb(246, 184, 103);
 
 }
 [data-field="firstName"]{
@@ -144,14 +140,6 @@ th{
 }
 /*------------------------------------------------ student popup ------------------------------------------------------*/
 #popup {
-/*   display: none;
-  position: fixed;
-  top: 100px;
-  left: 500px;
-  height: 350px;
-  width: 700px;
-  color: rgb(193, 180, 180);
-  z-index: 100; */
   display: none;
   position: fixed;
   top: 0;
@@ -165,71 +153,116 @@ aside article {
   display: grid;
   grid-template-rows: 30px 350px;
   background-color:rgb(11, 11, 68);
-  box-shadow: rgb(245, 194, 117) 0px 7px 29px 0px;
+  box-shadow: rgb(227, 219, 207) 0px 7px 29px 0px;
   width: 65%;
-  height:auto;
+  height:80%;
   margin: 4em auto;
   border-radius: 3px;
   padding: 20px;
-  color: antiquewhite;
+  color: rgb(227, 219, 207) ;
+  line-height: 1.5;
+  font-weight: 600;
 
 }
+.fullname{
+   font-family: 'Berkshire Swash', cursive;
+}
+
+/* BLANDET MEDIA */
 @media (min-width: 700px) {
   aside article {
   display: grid;
   grid-template-rows: 30px 350px;
-  background-color:rgb(11, 11, 68);
-  box-shadow: rgb(245, 194, 117) 0px 7px 29px 0px;
   width: 40%;
-  height:auto;
+  height:70%;
   margin: 4em auto;
   border-radius: 3px;
   padding: 20px;
     
 
 }
+body { 
+ margin-left: 50px;
+  margin-right: 50px;
+  background-image: url("background/skynight.png");
+  background-repeat:repeat-y;
+  background-size: 100%;
+}
+h1 {
+  font-size: 6rem;
+    
+}
+#gridbox_mix{ /*box for currently disp. + hacking btn*/
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.grid_container{
+  display: flex;
+  gap: 50px;
+}
+
+
 }
 
 .the_info{
   display: grid;
   justify-content: center;
   align-items: center;
+  row-gap: 20px;
 }
 
 .close_btn {
-  background-color: rgb(158, 145, 145);
+  background-color: blueviolet;
   cursor: pointer;
   border-radius: 50px;
   width: 1.5em;
   height: 1.5em;
   border: none;
 }
+.close_btn:hover {
+   color: rgb(246, 184, 103);
+}
 
 .fotos{
   display: flex;
-  flex-wrap: nowrap;
-  gap: 10px;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: 20px;
 }
 .crest_box{
-width: 50px;
-height: 50px;
+width: 70px;
+height: 70px;
 }
 .crest{
   width: 100%;
   height: 100%;
 }
-
+.dialog button{
+  background-color: blueviolet;
+  text-align: center;
+}
+.dialog button:hover {
+   color: rgb(246, 184, 103);
+}
 /*----------------------------------------------------filter btns-----------------------------------*/
 button.filter {
   cursor: pointer;
-  background-color: rgb(253, 209, 153);
-  color: black;
+  background-color:  blueviolet;
+  color: rgb(240, 228, 209);
+/*   box-shadow: rgba(198, 192, 192, 0.379) 0px 2px 8px 0px; */
   border-radius: 10px;
-  padding-left: 5px;
-  padding-right: 5px;
+  padding-left: 8px;
+  padding-right: 8px;
+  padding-top: 2px;
+  padding-bottom: 2px;
   text-align: center;
   border: none;
   margin-bottom: 20px;
+  
+}
+button.filter:hover {
+   color: rgb(246, 184, 103);
 }
 /*------------------------------------------------------prefect---------------------------------*/
 td[data-field="prefect"]::after {
@@ -242,69 +275,125 @@ td[data-field="prefect"][data-prefect="false"]::after {
 #warningbox_prefect h3 {
   text-align: center;
   font-size: 1.5rem;
+  color:rgb(246, 184, 103);
+}
+#warningbox_squad h3 {
+  text-align: center;
+  font-size: 1.5rem;
+  color:rgb(246, 184, 103);
+}
+#warningbox_noexpell h3 {
+  text-align: center;
+  font-size: 1.5rem;
+  color:rgb(246, 184, 103);
+}
+#warningbox_hacked h3 {
+  text-align: center;
+  font-size: 1.5rem;
+  color:rgb(246, 184, 103);
+}
+#warningbox_hacked_squad h3 {
+  text-align: center;
+  font-size: 1.5rem;
+  color:rgb(246, 184, 103);
 }
 button.closebutton {
   position: absolute;
   top: 3px;
   right: 3px;
-  background-color: rgb(158, 145, 145);
+  background-color: blueviolet;
   border-radius: 50px;
   width: 1.5em;
   height: 1.5em;
   border: none;
 }
-.removeaorbbtn {
-  background-color: rgb(158, 145, 145);
+.closebtn{
+    position: absolute;
+  top: 3px;
+  right: 3px;
+  background-color: blueviolet;
+  border-radius: 50px;
+  width: 1.5em;
+  height: 1.5em;
   border: none;
-  color: rgba(54, 51, 51);
+    color:  rgb(240, 228, 209);
+ 
+}
+.removeaorbbtn {
+  background-color: blueviolet;
+  border: none;
+  color:  rgb(240, 228, 209);
   padding: 2px;
   border-radius: 40px;
   padding-left: 8px;
   padding-right: 8px;
   width: 130px;
   text-align: start;
+  margin-top: 10px;
 }
 .removeaorb_grid {
   display: flex;
   justify-content: center;
   gap: 30px;
 }
+.removeaorbbtn:hover {
+   color: rgb(246, 184, 103);
+}
+.closebtn:hover {
+   color: rgb(246, 184, 103);
+}
+button.closebutton:hover {
+   color: rgb(246, 184, 103);
+}
 /*----------------------------------------------------squad-------------------------------------------------*/
+/* td[data-field="squadMember"]::after {
+  content: "🧙";
+}
 
-/*-------------------------------------------------warningboxe--------------------------------------------*/
+td[data-field="squadMember"][data-squad="false"]::after {
+  filter: grayscale(1);
+  
+} */
+
+/*-------------------------------------------------warningboxes--------------------------------------------*/
 .modal {
   position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: rgba(54, 51, 51, 0.667);
   display: flex;
   justify-content: center;
   align-items: center;
 }
 .dialog {
-  box-shadow: 1px 1px 10px black;
+  box-shadow: 1px 3px 20px rgb(227, 219, 207) ;
   border-radius: 12px;
   padding: 20px;
-  background-color: rgba(88, 85, 85, 0.952);
+  background-color:rgb(8, 8, 98);
   position: relative;
-  color: rgb(158, 145, 145);
+  color: rgb(227, 219, 207) ;
 }
 .dialog p {
   padding: 5px;
 }
 .dialog h3 {
   margin-bottom: 5px;
+  color: rgb(112, 44, 197);
 }
 
 .okay_btn {
-  background-color: rgb(158, 145, 145);
+  background-color: rgb(112, 44, 197);
   border: none;
   border-radius: 50px;
   padding: 2px;
   padding-left: 8px;
   padding-right: 8px;
+  margin-top: 10px;
+}
+
+.okay_btn :hover {
+   color: rgb(246, 184, 103);
 }
 /*---------------------------------------searchbar-------------------------------------*/
 .grid_box1 {
@@ -313,36 +402,67 @@ button.closebutton {
 }
 
 .student_numbers {
-  /*  display: grid;
-  align-items: center;
-  justify-content: center; */
   margin-top: 10px;
 }
 .search {
   border-radius: 50px;
   padding: 3px;
   width: 170px;
-  border: solid 2px rgb(158, 145, 145);
+ border: none;
  margin-bottom: 20px;
+
 }
+
+.numberinsearch{
+  color: rgb(227, 219, 207) ;
+  margin-bottom: 20px;
+
+}
+/*-----------------------------------------------------hacking-------------------------------------------*/
+#hack_box{
+  /*   display: grid;
+    justify-content: center; */
+    margin-bottom: 20px;
+}
+
+#hack {
+  border-radius: 10px;
+ background-color: rgb(112, 44, 197);
+  color: rgb(240, 228, 209);
+  padding-left: 8px;
+  padding-right: 8px;
+  padding-bottom: 2px;
+   padding-top: 2px;
+  border: none;
+}
+#hack:hover {
+   color: rgb(246, 187, 128);
+}
+
 /*-----------------------------currently displayed-----------------*/
 .sort_numbers {
   display: flex;
   align-items: center;
   margin-top: 20px;
-  color: rgb(253, 209, 153);
+  color: rgb(246, 184, 103);
   font-size:1.3rem ;
   margin-bottom: 20px;
+  font-family: 'Berkshire Swash', cursive;
+}
+.cur_dis{
+  padding-right: 10px;
 }
 
-/* ---------------------------------------------------animations ??--------------------------------------------*/
+/* ---------------------------------------------------animations ??----------------------------------------------*/
 
-/* [data-field]{
-font-weight:800;
-} */
 
-[data-field=house],
-[data-field=firstName],
-[data-field=lastName]{
-  font-weight:800;
+/*----------------------------------------------------animations slut--------------------------------------------*/
+
+
+/*----------------------------------------------------------FOOTER-----------------------------------------------------*/
+footer{
+  color: rgb(227, 219, 207) ;
+ margin-bottom:  20px;
+  margin-top:  20px;
+  text-align: center;
 }
