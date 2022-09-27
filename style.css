@@ -264,6 +264,12 @@ button.filter {
 button.filter:hover {
    color: rgb(246, 184, 103);
 }
+.filter_btns{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  
+}
 /*------------------------------------------------------prefect---------------------------------*/
 td[data-field="prefect"]::after {
   content: "⭐";

@@ -75,7 +75,7 @@ function pushMe() {
     bloodStatus: "Pureblood",
     prefect: false,
   });
-  console.log(allStudents);
+  //console.log(allStudents);
   buildList();
 }
 //serach function made here
@@ -385,6 +385,7 @@ function toggleExpelled(student) {
     student.prefect = false;
     student.attending = false;
     student.squadMember = false;
+    
   }
   buildList();
 }
